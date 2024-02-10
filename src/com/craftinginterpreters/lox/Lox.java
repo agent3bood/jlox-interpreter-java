@@ -7,15 +7,13 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Lox {
     private static final Interpreter interpreter = new Interpreter();
 
 
     static boolean hadError = false;
-    static boolean hasRuntimeError = false;
+    static boolean hadRuntimeError = false;
 
     public static void main(String[] args) throws IOException {
         if (args.length > 1) {
@@ -32,7 +30,7 @@ public class Lox {
         byte[] bytes = Files.readAllBytes(Paths.get(path));
         run(new String(bytes, Charset.defaultCharset()));
         if (hadError) System.exit(65);
-        if (hasRuntimeError) System.exit(70);
+        if (hadRuntimeError) System.exit(70);
     }
 
     private static void runPrompt() throws IOException {
@@ -76,7 +74,7 @@ public class Lox {
 
     static void runtimeError(RuntimeError error) {
         System.err.println(error.getMessage() + "\n[line " + error.token.line + "]");
-        hasRuntimeError = true;
+        hadRuntimeError = true;
     }
 
     private static void report(int line, String where, String message) {
