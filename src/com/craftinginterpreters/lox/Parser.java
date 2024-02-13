@@ -105,13 +105,16 @@ public class Parser {
         if (!check(SEMICOLON)) {
             condition = expression();
         }
+        consume(SEMICOLON, "Expect ';' after loop condition.");
 
         Expr increment = null;
         if (!check(RIGHT_PAREN)) {
             increment = expression();
         }
         consume(RIGHT_PAREN, "Expect ')' after for clauses.");
+
         Stmt body = statement();
+
         if (increment != null) {
             body = new Stmt.Block(Arrays.asList(
                     body,
@@ -209,7 +212,7 @@ public class Parser {
     private List<Stmt> block() {
         List<Stmt> statements = new ArrayList<>();
 
-        while (!check(RIGHT_PAREN) && !isAtEnd()) {
+        while (!check(RIGHT_BRACE) && !isAtEnd()) {
             statements.add(declaration());
         }
 
