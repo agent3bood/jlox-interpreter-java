@@ -373,7 +373,7 @@ public class Parser {
         return expr;
     }
 
-    private Expr finishCall(Expr calee) {
+    private Expr finishCall(Expr callee) {
         List<Expr> arguments = new ArrayList<>();
         if (!check(RIGHT_PAREN)) {
             do {
@@ -386,7 +386,7 @@ public class Parser {
 
         Token paren = consume(RIGHT_PAREN, "Expect ')' after arguments.");
 
-        return new Expr.Call(calee, paren, arguments);
+        return new Expr.Call(callee, paren, arguments);
     }
 
     /**
