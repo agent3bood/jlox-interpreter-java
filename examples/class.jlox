@@ -1,0 +1,22 @@
+class Person {
+  init(name) {
+    this.name = name;
+  }
+
+  setName(name) {
+    this.name = name;
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  sendRegards(name) {
+    print this.name + " is sending his regards to " + name + ".";
+  }
+}
+
+var ali = Person("Ali");
+var abd = Person("Abd");
+print ali.name;
+ali.sendRegards(abd.getName());
