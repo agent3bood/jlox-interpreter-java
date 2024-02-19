@@ -8,4 +8,4 @@
 
 ## Run examples
 
-`java -cp out com.craftinginterpreters.lox.Lox examples/fib.jlox `
+`java -cp out com.craftinginterpreters.lox.Lox examples/fib.lox `
