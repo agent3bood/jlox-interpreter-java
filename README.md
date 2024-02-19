@@ -9,3 +9,7 @@
 ## Run examples
 
 `java -cp out com.craftinginterpreters.lox.Lox examples/fib.lox `
+
+## Future ideas
+- Add `List` data type.
+- Add `Dictionary` data type.
